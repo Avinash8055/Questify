@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { TaskProvider } from './context/TaskContext';
@@ -8,14 +8,21 @@ import SideQuestsPage from './pages/SideQuestsPage';
 import SettingsPage from './pages/SettingsPage';
 import Navigation from './components/Navigation';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import Splash from './components/Splash';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <ThemeProvider>
       <TaskProvider>
-        <Router>
-          <AppContent />
-        </Router>
+        {showSplash ? (
+          <Splash onFinish={() => setShowSplash(false)} />
+        ) : (
+          <Router>
+            <AppContent />
+          </Router>
+        )}
       </TaskProvider>
     </ThemeProvider>
   );
@@ -23,7 +30,7 @@ function App() {
 
 const AppContent = () => {
   const { currentTheme } = useTheme();
-  
+
   return (
     <div className={`min-h-screen h-screen flex flex-col ${currentTheme.bgGradient}`}>
       <ThemeSwitcher />
