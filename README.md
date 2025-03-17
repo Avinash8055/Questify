@@ -6,9 +6,13 @@ A gamified task management app built with React and TypeScript, supporting both 
 
 ## 🚀 **Features**  
 ✅ Task management with progress tracking 📊
+
 ✅ Side quests for bonus challenges 🎯
+
 ✅ Supports 4 Theme Variants for personalized styling 🎨
+
 ✅ Web and mobile support using Capacitor 📱
+
 ✅ Data visualization with Chart.js 📈
 
 ---
